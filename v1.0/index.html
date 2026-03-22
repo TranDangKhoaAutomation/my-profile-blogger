@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:js='false' b:layoutsVersion='3' b:templateUrl='indie.xml' b:templateVersion='1.3.0' class='v2' expr:dir='data:blog.languageDirection' lang='vi' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+    <head>
+    <title>Thông Tin Cá Nhân</title>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+    <link href='https://img.icons8.com/ultraviolet/40/person-male.png' rel='icon' type='image/png'/>
+    <link href='https://fonts.googleapis.com' rel='preconnect'/>
+    <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
+    <link href='https://fonts.googleapis.com/css2?family=Moirai+One&amp;family=Tapestry&amp;display=swap;' rel='stylesheet'/>
+    <link href='https://fonts.googleapis.com/css2?family=Coiny&amp;display=swap' rel='stylesheet'/>
+    <b:skin><![CDATA[
+        html, body {
+          height: 100%;
+          margin: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .container {
+            flex: 1; /* phần chính chiếm hết chiều cao còn lại */
+            max-width: 70%;
+            margin: auto;
+            background: linear-gradient(to right, #d7dddb, #a6f6dc61);
+            padding: 10%;
+            border-radius: 2%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+            color: #666;
+        }
+        .text-head {
+            text-align: center;
+            color: #333;
+            font-family: "Coiny", system-ui;
+            font-weight: 600;
+            font-style: 150%;
+			font-size: 150%;
+            margin-top: 2%;
+            margin-bottom: 20px;
+        }
+        .profile-img {
+            display: block;
+            margin: 0 auto;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .social-head {
+            text-align: center;
+            margin-top: 1%;
+        }
+        .social-icon {
+            display: inline-block;
+            width: 10%;
+            height: 40px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        .small-icon {
+            width: 80%;
+            height: 80%;
+        }
+        .social-icon img {
+            object-fit: contain;
+            width: 80%;
+            height: 90%;
+        }
+        .info-body {
+            text-align: center;
+            line-height: 40px;
+        }
+        .button-social {
+            font-family: "Moirai One", system-ui;
+            font-weight: 900;
+            display: inline-block;
+            margin: 1% 0%;
+            padding: 1% 0;
+            width: 100%;
+            background-color: #0056ff8f;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button-social:hover {
+            background-color: #0056b3;
+        }
+        /* CSS cho bảng thông báo */
+        .notification-table {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+            text-align: center;
+        }
+
+        .notification-table h2 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .notification-table p {
+            font-size: 1.1em;
+            color: #666;
+        }
+        .ok-button {
+            background-color: #0056ff8f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .ok-button:hover {
+            background-color: #0056b3;
+        }
+        .bounce-in {
+            animation: bounceIn 0.5s ease;
+            display: inline-block;
+        }
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0) translate(-50%, -50%);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2) translate(-50%, -50%);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1) translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+        .footer {
+          text-align: center;
+          font-size: 0.9em;
+          color: #333;
+          margin-top: 50px;
+        }
+        .footer a {
+            color: #0056ff;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        #backToTop {
+            display: none;
+            position: fixed;
+            bottom: 40px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #0056ff8f;
+            color: white;
+            cursor: pointer;
+            padding: 9px 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        #backToTop:hover {
+            background-color: #0056b3;
+        }
+        ]]></b:skin>
+    </head>
+  
+    <!-- Bắt đầu phần hiển thị -->
+    <body>
+  
+    <div class='container'>
+        <img alt='Ảnh đại diện của bạn' class='profile-img' src='https://i.imgur.com/1rOVNoF.png'/>
+        <p class='text-head'>Trần Đăng Khoa</p>
+        <div class='social-head'>
+            <!-- Các icon social sẽ được thêm vào đây bởi JavaScript -->
+        </div>
+        <div class='info-body'>
+            <!-- Các nút button-social sẽ được thêm vào đây bởi JavaScript -->
+        </div>
+      </div>
+    <!-- Bảng thông báo -->
+    <div class='notification-table' id='notification'>
+        <h2>Thông báo</h2>
+        <p>Số tài khoản đã được sao chép thành công!</p>
+        <button class='ok-button' id='ok-button'>OK</button>
+    </div>
+    <button id='backToTop' title='Lên đầu trang'>&#11014;</button>
+    <footer class='footer'>
+      <p id='copyright-text'/>
+    </footer>
+    <script>
+        // Chặn chuột phải
+        document.addEventListener(&quot;contextmenu&quot;, function (e) {
+          e.preventDefault();
+        });
+
+        // Chặn chọn văn bản
+        document.addEventListener(&quot;selectstart&quot;, function (e) {
+          e.preventDefault();
+        });
+
+        // Chặn Ctrl+U, Ctrl+S, Ctrl+Shift+I, F12
+        document.addEventListener(&quot;keydown&quot;, function (e) {
+          if (
+            (e.ctrlKey &amp;&amp; e.key === &#39;u&#39;) || // Ctrl+U
+            (e.ctrlKey &amp;&amp; e.key === &#39;s&#39;) || // Ctrl+S
+            (e.ctrlKey &amp;&amp; e.shiftKey &amp;&amp; e.key.toLowerCase() === &#39;i&#39;) || // Ctrl+Shift+I
+            (e.key === &#39;F12&#39;)
+          ) {
+            e.preventDefault();
+          }
+        });
+        // Mảng chứa thông tin các social-icon cho phần social-head
+        let headItems = [
+            {
+                name: &quot;Facebook&quot;,
+                url: &quot;https://www.facebook.com/100026315003067&quot;,
+                iconUrl: &quot;https://img.icons8.com/ios/50/facebook-new.png&quot;
+            },
+            {
+                name: &quot;TikTok&quot;,
+                url: &quot;https://www.tiktok.com/@trandangkhoadev&quot;,
+                iconUrl: &quot;https://img.icons8.com/ios/50/tiktok.png&quot;
+            },
+            {
+                name: &quot;Call&quot;,
+                url: &quot;tel:+84936763612&quot;,
+                iconUrl: &quot;https://img.icons8.com/ios/50/phone--v1.png&quot;
+            },
+            {
+                name: &quot;Mail&quot;,
+                url: &quot;mailto:khoa31122006@gmail.com&quot;,
+                iconUrl: &quot;https://img.icons8.com/ios/50/secured-letter--v1.png&quot;
+            }
+        ];
+
+        // Mảng chứa thông tin các hành động cho phần info-body
+        let bodyItems = [
+            {
+                name: &quot;Facebook&quot;,
+                url: &quot;https://www.facebook.com/100026315003067&quot;,
+                type: &quot;_blank&quot;
+            },
+            {
+                name: &quot;Messenger&quot;,
+                url: &quot;https://messenger.com/t/100026315003067&quot;,
+                type: &quot;_blank&quot;
+            },
+            {
+                name: &quot;My Website&quot;,
+                url: &quot;https://TranDangKhoaTechnology.xyz&quot;,
+                type: &quot;_blank&quot;
+            },
+            {
+                name: &quot;Tiktok&quot;,
+                url: &quot;https://www.tiktok.com/@trandangkhoadev&quot;,
+                type: &quot;_blank&quot;
+            },
+//            {
+//                name: &quot;Telegram&quot;,
+//                url: &quot;https://t.me/+84936763612&quot;,
+//                type: &quot;_blank&quot;
+//            },
+            {
+                name: &quot;Youtube&quot;,
+                url: &quot;https://youtube.com/@codewithkhoa?si=HZTjA6dEnNpgsBmi&quot;,
+                type: &quot;_blank&quot;
+            },
+            {
+                name: &quot;Locket&quot;,
+                url: &quot;https://locket.camera/links/mC33m9HhBRLxpuqV8&quot;,
+                type: &quot;_blank&quot;
+            },
+            {
+                name: &quot;Viettinbank&quot;,
+                url: &quot;#&quot;,
+                type: &quot;copy&quot;,
+                stk: &quot;0936763612&quot;
+            },
+            {
+                name: &quot;Momo&quot;,
+                url: &quot;#&quot;,
+                type: &quot;copy&quot;,
+                stk: &quot;0936763612&quot;
+            }
+        ];
+
+        document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
+            const socialHeadContainer = document.querySelector(&#39;.social-head&#39;);
+            const infoBodyContainer = document.querySelector(&#39;.info-body&#39;);
+
+            // Xử lý các mục trong headItems để tạo các social-icon trong social-head
+            headItems.forEach(function (item) {
+                let element = document.createElement(&#39;a&#39;);
+                element.href = item.url;
+                element.target = &quot;_blank&quot;;
+                element.classList.add(&#39;social-icon&#39;);
+
+                let img = document.createElement(&#39;img&#39;);
+                img.src = item.iconUrl;
+                img.alt = `logo-${item.name.toLowerCase()}`;
+                img.classList.add(&#39;small-icon&#39;);
+
+                element.appendChild(img);
+                socialHeadContainer.appendChild(element);
+            });
+
+            // Xử lý các mục trong bodyItems để tạo các button-social trong info-body
+            bodyItems.forEach(function (item) {
+                let element = document.createElement(&#39;div&#39;);
+                element.classList.add(&#39;button-social&#39;);
+                element.innerText = item.name;
+
+                if (item.type === &quot;_blank&quot;) {
+                    element.addEventListener(&#39;click&#39;, function () {
+                        window.open(item.url, &#39;_blank&#39;);
+                    });
+                } else if (item.type === &quot;copy&quot;) {
+                    element.addEventListener(&#39;click&#39;, function () {
+                        navigator.clipboard.writeText(item.stk).then(() =&gt; {
+                            let notification = document.getElementById(&#39;notification&#39;);
+                            notification.style.display = &#39;block&#39;;
+                            notification.classList.add(&#39;bounce-in&#39;);
+
+                            setTimeout(() =&gt; {
+                                notification.style.display = &#39;none&#39;;
+                                notification.classList.remove(&#39;bounce-in&#39;);
+                            }, 3000);
+                        }).catch(err =&gt; {
+                            console.error(&#39;Failed to copy: &#39;, err);
+                        });
+                    });
+                }
+
+                infoBodyContainer.appendChild(element);
+            });
+
+            // Xử lý sự kiện click cho nút OK
+            document.getElementById(&#39;ok-button&#39;).addEventListener(&#39;click&#39;, function() {
+                let notification = document.getElementById(&#39;notification&#39;);
+                notification.style.display = &#39;none&#39;;
+                notification.classList.remove(&#39;bounce-in&#39;);
+            });
+        });
+        // Tự cập nhật năm trong footer
+        document.getElementById(&quot;copyright-text&quot;).innerHTML =
+  `&#169; ${new Date().getFullYear()} Trần Đăng Khoa. All rights reserved.`;
+
+        // Xử lý nút &quot;Back to Top&quot;
+        const backToTopBtn = document.getElementById(&quot;backToTop&quot;);
+
+        window.onscroll = function () {
+          if (document.body.scrollTop &gt; 200 || document.documentElement.scrollTop &gt; 200) {
+            backToTopBtn.style.display = &quot;block&quot;;
+          } else {
+            backToTopBtn.style.display = &quot;none&quot;;
+          }
+        };
+
+        backToTopBtn.onclick = function () {
+          window.scrollTo({ top: 0, behavior: &#39;smooth&#39; });
+        };
+    </script>
+  <b:if cond='data:displayname == &quot;Displaynone&quot;'><b:section id='Trần Đăng Khoa'/></b:if>
+  </body>
+    <!-- Kết thúc phần hiển thị -->
+</html>
